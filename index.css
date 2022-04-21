@@ -1,0 +1,57 @@
+/* ----------------------------------------------------------------- */
+/*                          RESETEAR                                 */
+/* ----------------------------------------------------------------- */
+
+/* https://piccalil.li/blog/a-modern-css-reset/  
+Enlace a un  reset simple y moderno en la web utilizado por el pofe*/ 
+
+/*  Box sizing */
+/* Con eso hacemos que cuando declaramos, por ejemplo, width de 500px en un DIV... que dentro de estos 500px entran bordes, padding y contenido y que los margenes no entran. */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/*   Resetear imagenes */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+figure,
+picture {
+    margin: 0;
+}    
+/*  Poner detalles en el body */
+/* Por defecto es 1,4 y es aparentemente poco */
+body {
+    line-height: 1.5; 
+    min-height: 100vh;
+}
+/* Para trabajar mas facil con las imagenes */
+img,
+picture {
+    max-width: 100%;
+    display: block;
+}
+/* Para trabajar mas facil con el formulario */
+input,
+button,
+textarea,
+select {
+    font: inherit
+}
+/* Quitar las animaciones y transiciones para las personas que lo han solicitado en su navegador o sistema operativo, se trata de uma medida de accesibilidad */
+@media (prefers-reduced-motion: reduce) {  
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }

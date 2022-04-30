@@ -216,3 +216,44 @@ los usuarios con problema visual*/
     opacity: 1;
     transform: scale(1.5);
 }
+
+.primary-navigation {
+    --gap: 8rem; /* Aqui declaro una variable solamente para esta clase. Se usa en el .flex */
+    --underline-gap: 2rem; /* Aqui declaro una variable solamente para esta clase */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.primary-navigation a {
+    text-decoration: none;
+}
+
+.primary-navigation a > span {
+    font-weight: 700;
+    margin-right: .5em;
+}
+
+.underline-indicators > * {
+    cursor: pointer;
+    padding: var(--underline-gap, 1rem) 0;  /* Aqui es donde utilizo la variable declarada en .primary-navigation, 1rem es el valor por defecto */
+    border: 0;
+    border-bottom: .2rem solid hsl( var(--clr-white) / 0 );
+}
+
+.underline-indicators > li:hover,
+.underline-indicators > li:focus,
+.underline-indicators > button:hover,
+.underline-indicators > button:focus {
+    border-color: hsl( var(--clr-white) / .5);
+}
+
+.underline-indicators > .active,
+.underline-indicators > [aria-selected="true"] {
+    color: hsl( var(--clr-white) / 1);
+    border-color: hsl( var(--clr-white) / 1); 
+}
+
+.tab-list {
+    --gap: 2rem;
+}

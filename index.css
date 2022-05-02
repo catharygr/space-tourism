@@ -257,3 +257,43 @@ los usuarios con problema visual*/
 .tab-list {
     --gap: 2rem;
 }
+
+.dot-indicators > * {
+    cursor: pointer;
+    border: 0;
+    border-radius: 50%;
+    padding: .5em;
+    background-color: hsl( var(--clr-white) / .25);
+}
+
+.dot-indicators > button:hover,
+.dot-indicators > button:focus {
+    background-color: hsl( var(--clr-white) / .5);
+}
+
+.dot-indicators > [aria-selected="true"] {
+    background-color: hsl( var(--clr-white) / 1); 
+}
+.number-indicators {
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.number-indicators > * {
+    border-radius: 50%;
+    padding: 1rem;
+    width: 5rem;
+    height: 5rem;
+    cursor: pointer;
+    border: .1rem solid hsl( var(--clr-white) / .25 );
+}
+.number-indicators > button:hover,
+.number-indicators > button:focus {
+    border-color:  hsl( var(--clr-white) / .5 );
+}
+.number-indicators > [aria-selected="true"] {
+    background-color: hsl( var(--clr-white) / 1); 
+    color:hsl( var(--clr-dark) / 1);
+    border: .1rem solid hsl( var(--clr-white) / 1 );
+
+}

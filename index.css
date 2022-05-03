@@ -122,6 +122,20 @@ cualquier elemento hijo ( * ) QUE NO ES (:not) el PRIMER HIJO (:first-child) haz
     margin-inline: auto;
     max-width: 80rem;
 }
+.grid-container {
+    display: grid;
+    column-gap: var( --container-gap, 2rem);
+    grid-template-columns: minmax(2rem, 1fr) repeat( 2, minmax(0, 40rem)) minmax(2rem, 1fr);
+}
+
+.grid-container > *:first-child {
+    grid-column: 2;
+    outline: 1px solid red; 
+}
+ .grid-container > *:last-child {
+     grid-column: 3;
+     outline: 1px solid yellow;
+ }
 /* Esta clase sirve para ocultar visualmente el contenido que usan 
 los usuarios con problema visual*/
 .sr-only {
@@ -191,7 +205,7 @@ los usuarios con problema visual*/
 
 .large-button {
     position: relative;
-    display: grid;
+    display: inline-grid;
     z-index: 1;
     place-items: center;
     padding: 0 2em;

@@ -279,14 +279,30 @@ los usuarios con problema visual*/
     opacity: 1;
     transform: scale(1.5);
 }
-
 .primary-navigation {
-    --gap: 8rem; /* Aqui declaro una variable solamente para esta clase. Se usa en el .flex */
-    --underline-gap: 2rem; /* Aqui declaro una variable solamente para esta clase */
+    --underline-gap: 2rem; /* Aqui declaro una variable solamente para esta clase */  
     list-style: none;
     padding: 0;
     margin: 0;
+    
 }
+@media (max-width: 35rem){
+.primary-navigation {
+    --underline-gap: .5rem; /* Aqui declaro una variable solamente para esta clase */
+    position: fixed;
+    inset: 0 0 0 30%;
+    z-index: 1000;
+    background: black;
+    list-style: none;
+    padding: min(20rem, 15vh) 2rem;
+    margin: 0;
+    flex-direction: column;
+    }
+    .primary-navigation.underline-indicators > .active {
+        border: 0;
+    }
+}
+
 
 .primary-navigation a {
     text-decoration: none;

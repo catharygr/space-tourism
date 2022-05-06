@@ -91,9 +91,9 @@ body {
     background-color: hsl( var(--clr-dark) );
     line-height: 1.5; 
     min-height: 100vh;
-
     display: grid;
     grid-template-rows: min-content 1fr;
+    overflow-x: hidden;
 }
 /* Para trabajar mas facil con las imagenes */
 img,
@@ -284,25 +284,49 @@ los usuarios con problema visual*/
     list-style: none;
     padding: 0;
     margin: 0;
-    
+    background: hsl( var(--clr-dark) /0.95 ); /* Efecto blour transparente en el backgroud(fondo) */    
 }
+@supports (backdrop-filter: blur(1.5rem)) {
+        .primary-navigation {
+            background: hsl( var(--clr-white) / 0.05);
+            backdrop-filter: blur(1.5rem);
+        }
+}
+
+.mobile-nav-toggle {
+    display: none;
+}
+
 @media (max-width: 35rem){
 .primary-navigation {
     --underline-gap: .5rem; /* Aqui declaro una variable solamente para esta clase */
     position: fixed;
     inset: 0 0 0 30%;
     z-index: 1000;
-    background: black;
     list-style: none;
     padding: min(20rem, 15vh) 2rem;
     margin: 0;
     flex-direction: column;
+    transform: translateX(100%);
     }
-    .primary-navigation.underline-indicators > .active {
+    .primary-navigation[data-visible="true"] {
+        transform: translateX(0);
+    }
+    .mobile-nav-toggle {
+        display: block;
+        position: absolute;
+        z-index: 2000;
+        right: 1rem;
+        top: 2rem;
+        background: transparent;
+        background-image: url(./assets/shared/icon-hamburger.svg);
+        background-repeat: no-repeat;
+        width: 1.5rem;
+        aspect-ratio: 1;
         border: 0;
-    }
+       
 }
-
+}
 
 .primary-navigation a {
     text-decoration: none;
@@ -319,18 +343,26 @@ los usuarios con problema visual*/
     border: 0;
     border-bottom: .2rem solid hsl( var(--clr-white) / 0 );
 }
-
-.underline-indicators > li:hover,
-.underline-indicators > li:focus,
-.underline-indicators > button:hover,
-.underline-indicators > button:focus {
+/* border balnco para todos los elementos en focus */
+.underline-indicators > *:focus {
     border-color: hsl( var(--clr-white) / .5);
 }
 
+@media (hover: hover) {
+    /* Subrayado en blanco para navegadores con mouse no es para moviles */
+    .underline-indicators > *:hover{
+        border-color: hsl( var(--clr-white) / .5);
+    }
+}
+
+
+@media (min-width: 35rem) {
+    /* Esto es para los no moviles para que aparesca la linea subrayada bajo el menu active o aria selected */
 .underline-indicators > .active,
 .underline-indicators > [aria-selected="true"] {
     color: hsl( var(--clr-white) / 1);
     border-color: hsl( var(--clr-white) / 1); 
+    }
 }
 
 .tab-list {

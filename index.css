@@ -13,7 +13,7 @@
     --fs-800: 3.5rem;
     --fs-700: 1.5rem;
     --fs-600: 1rem;
-    --fs-500: 1.75rem;
+    --fs-500: 1rem;
     --fs-400: 0.9375rem;
     --fs-300: 1rem;
     --fs-200: 0.875rem;
@@ -29,6 +29,7 @@
         --fs-800: 5rem;
         --fs-700: 2.5rem;
         --fs-600: 1.5rem;
+        --fs-500: 1.25rem;
         --fs-400: 1rem;
     }
 }
@@ -38,6 +39,7 @@
         /* font-sizes */
         --fs-800: 6.25rem;
         --fs-700: 3.5rem;
+        --fs-500: 1.75rem;
         --fs-600: 2rem;
         --fs-400: 1.125rem;
     }
@@ -102,6 +104,7 @@ picture {
     display: block;
 }
 /* Para trabajar mas facil con el formulario */
+
 input,
 button,
 textarea,
@@ -109,6 +112,7 @@ select {
     font: inherit
 }
 /* Quitar las animaciones y transiciones para las personas que lo han solicitado en su navegador o sistema operativo, se trata de uma medida de accesibilidad */
+
 @media (prefers-reduced-motion: reduce) {  
     *,
     *::before,
@@ -124,7 +128,7 @@ select {
 /*                        UTILIDAD DE CLASES                                      */
 /* -------------------------------------------------------------------------------- */
 
-/*                                   GENERAL                       */
+/*     GENERAL       */
 
 .flex {
     display: flex;
@@ -142,6 +146,7 @@ select {
 
 /* EN el elemento DONDE (:where) esta aplicada la classe .flow y a todos sus hijos ( > ) y de
 cualquier elemento hijo ( * ) QUE NO ES (:not) el PRIMER HIJO (:first-child) haz esto... */ 
+
 .flow  > *:where(:not(:first-child)) {
     margin-top: var(--flow-space,1rem);
  }
@@ -150,42 +155,11 @@ cualquier elemento hijo ( * ) QUE NO ES (:not) el PRIMER HIJO (:first-child) haz
     margin-inline: auto;
     max-width: 80rem;
 }
-.grid-container {
-    text-align: center;
-    display: grid;
-    place-items: center;
-    padding-inline: 1rem;
 
-}
-.grid-container * {
-    max-width: 50ch;
-}
-
-@media (min-width: 45em) {
-    .grid-container {
-        text-align: left;
-        column-gap: var( --container-gap, 2rem);
-        grid-template-columns: minmax(1rem, 1fr) repeat( 2, minmax(0, 40rem)) minmax(1rem, 1fr);
-    }
-
-    .grid-container > *:first-child {
-        grid-column: 2;
-         
-    }
-
-     .grid-container > *:last-child {
-         grid-column: 3;
-         
-     }
-
-     .grid-container--home {
-         padding-bottom: max(6rem,20vh);
-         align-items: end;
-     }
-}
 
 /* Esta clase sirve para ocultar visualmente el contenido que usan 
 los usuarios con problema visual*/
+
 .sr-only {
     position: absolute;
     width: 1px;
@@ -205,7 +179,7 @@ los usuarios con problema visual*/
     padding: .5em 1em;
     margin-inline: auto;
     transform: translateY(-100%);
-    transition: transform 550ms ease-in;
+    transition: transform 250ms ease-in;
 }
 .skip-to-content:focus {
     transform: translateY(0);
@@ -472,6 +446,8 @@ los usuarios con problema visual*/
 /* --------------------------------------------------*/
 /*    IMAGEBES DE FONFOS  ESPECIFICAS POR PAGINAS    */
 /* --------------------------------------------------*/
+
+
 body {
     background-size: cover;
     background-position: bottom center;
@@ -493,4 +469,87 @@ body {
     .home {
         background-image: url(./assets/home/background-home-desktop.jpg);
     }
+}
+
+        /* ------------------------------------- */
+        /*      Layout  (Colocar los elementos   */
+        /* ------------------------------------- */
+
+
+.grid-container {
+    text-align: center;
+    display: grid;
+    place-items: center;
+    padding-inline: 1rem;
+    padding-bottom: 4rem;
+
+}
+.grid-container * {
+    max-width: 50ch;
+}
+.numbered-title {
+    grid-area: title;
+}
+
+/*    DESTINACION LAYOUT   */
+
+.grid-container--destination {
+    --flow-space: 2rem;
+    grid-template-areas: 
+       'title'
+       'imagen'
+        'tabs'
+        'content';
+}
+
+.grid-container--destination > img {
+    grid-area: imagen;
+    max-width: 60% ;
+}
+
+.grid-container--destination > .tab-list {
+    grid-area: tabs;
+}
+ .grid-container--destination > .destination-info {
+     grid-area: content;
+ }
+
+ .destination-meta {
+     flex-direction: column;
+     border-top: 1px solid hsl( var(--clr-white) / .1 );
+     padding-top: 2.5rem;
+     margin-top: 2.5rem;
+ }
+  @media (min-width: 35em) {
+      .numbered-title {
+        justify-self: start;
+        margin-top: 2rem;
+      }
+      .destination-meta {
+          flex-direction: row;
+          justify-content: space-evenly;
+      } 
+  }
+
+@media (min-width: 45em) {
+    .grid-container {
+        text-align: left;
+        column-gap: var( --container-gap, 2rem);
+        grid-template-columns: minmax(1rem, 1fr) repeat( 2, minmax(0, 40rem)) minmax(1rem, 1fr);
+    }
+
+    .grid-container > *:first-child {
+        grid-column: 2;
+         
+    }
+
+     .grid-container > *:last-child {
+         grid-column: 3;
+         
+     }
+
+     .grid-container--home {
+         padding-bottom: max(6rem,20vh);
+         align-items: end;
+     }
 }

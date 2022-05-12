@@ -150,6 +150,10 @@ cualquier elemento hijo ( * ) QUE NO ES (:not) el PRIMER HIJO (:first-child) haz
 .flow  > *:where(:not(:first-child)) {
     margin-top: var(--flow-space,1rem);
  }
+ .flow--space-small {
+     --flow-space: .5rem;
+ }
+ 
 .container {
     padding-inline: 2em;
     margin-inline: auto;
@@ -374,9 +378,11 @@ los usuarios con problema visual*/
 
 .underline-indicators > * {
     cursor: pointer;
-    padding: var(--underline-gap, 1rem) 0;  /* Aqui es donde utilizo la variable declarada en .primary-navigation, 1rem es el valor por defecto */
+    padding: var(--underline-gap, .5rem) 0;  /* Aqui es donde utilizo la variable declarada en .primary-navigation, 1rem es el valor por defecto */
     border: 0;
     border-bottom: .2rem solid hsl( var(--clr-white) / 0 );
+    background-color: transparent;
+
 }
 /* border balnco para todos los elementos en focus */
 .underline-indicators > *:focus {
@@ -470,6 +476,43 @@ body {
         background-image: url(./assets/home/background-home-desktop.jpg);
     }
 }
+/* destination */
+
+.destination {
+    background-image: url(./assets/destination/background-destination-mobile.jpg);
+}
+
+@media (min-width: 35rem) {
+    .destination {
+        background-position: center center;
+        background-image: url(./assets/destination/background-destination-tablet.jpg);
+    }
+}
+
+@media (min-width: 45rem) {
+    .destination {
+        background-image: url(./assets/destination/background-destination-desktop.jpg);
+    }
+} 
+
+/* crew */
+
+.crew {
+    background-image: url(./assets/crew/background-crew-mobile.jpg);
+}
+
+@media (min-width: 35rem) {
+    .crew {
+        background-position: center center;
+        background-image: url(./assets/crew/background-crew-tablet.jpg);
+    }
+}
+
+@media (min-width: 45rem) {
+    .crew {
+        background-image: url(./assets/crew/background-crew-desktop.jpg);
+    }
+} 
 
         /* ------------------------------------- */
         /*      Layout  (Colocar los elementos   */
@@ -542,12 +585,16 @@ body {
     border-bottom: 1px solid hsl( var(--clr-white) / .1);
 }
 
-.grid-container--crew > .dot-list {
+.grid-container--crew > .dot-indicators {
     grid-area: tabs;
 }
 
 .grid-container--crew > .crew-details {
     grid-area: content;
+}
+
+.crew-details h2 {
+    color: hsl( var(--clr-white) / .5);
 }
   
   @media (min-width: 35rem) {
@@ -555,9 +602,18 @@ body {
       justify-self: start;
       margin-top: 2rem;
     }
+
     .destination-meta {
       flex-direction: row;
       justify-content: space-evenly;
+    }
+    .grid-container--crew {
+        padding-bottom: 0;
+        grid-template-areas: 
+        'title'
+        'content'
+        'tabs'
+        'image';
     }
   }
 
@@ -590,12 +646,25 @@ body {
       '. image tabs .'
       '. image content .';
     }
-    .grid-container--destination > img {
+    .grid-container--destination > img,
+    .grid-container--crew > img {
         max-width: 90%;
     }
     .destination-meta {
         --gap: min(6vw, 6rem);
         justify-content: start;
     }
+    .grid-container--crew {
+        grid-template-areas: 
+            '. title title .'
+            '. content image .'
+            '. tabs image .';
+    }
+    .grid-container--crew > .dot-indicators {
+        justify-self: start;
+    }
+    /* .grid-container--crew > img {
+        align-self: end;
+    } */
   
   }

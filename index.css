@@ -153,7 +153,7 @@ cualquier elemento hijo ( * ) QUE NO ES (:not) el PRIMER HIJO (:first-child) haz
  .flow--space-small {
      --flow-space: .5rem;
  }
- 
+
 .container {
     padding-inline: 2em;
     margin-inline: auto;
@@ -547,7 +547,7 @@ body {
         'content';
   }
   
-  .grid-container--destination > img {
+  .grid-container--destination > picture {
     grid-area: image;
     max-width: 60%;
   }
@@ -579,7 +579,7 @@ body {
         'tabs'
         'content';
 }
-.grid-container--crew > img {
+.grid-container--crew > picture {
     grid-area: image;
     max-width: 60%;
     border-bottom: 1px solid hsl( var(--clr-white) / .1);
@@ -646,8 +646,8 @@ body {
       '. image tabs .'
       '. image content .';
     }
-    .grid-container--destination > img,
-    .grid-container--crew > img {
+    .grid-container--destination > picture,
+    .grid-container--crew > picture {
         max-width: 90%;
     }
     .destination-meta {
@@ -663,7 +663,7 @@ body {
     .grid-container--crew > .dot-indicators {
         justify-self: start;
     }
-    /* .grid-container--crew > img {
+    /* .grid-container--crew > picture {
         align-self: end;
     } */
   

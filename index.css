@@ -98,8 +98,7 @@ body {
     overflow-x: hidden;
 }
 /* Para trabajar mas facil con las imagenes */
-img,
-picture {
+img {
     max-width: 100%;
     display: block;
 }
@@ -384,7 +383,7 @@ los usuarios con problema visual*/
     background-color: transparent;
 
 }
-/* border balnco para todos los elementos en focus */
+/* border blanco para todos los elementos en focus */
 .underline-indicators > *:focus {
     border-color: hsl( var(--clr-white) / .5);
 }
@@ -398,7 +397,7 @@ los usuarios con problema visual*/
 
 
 @media (min-width: 35rem) {
-    /* Esto es para los no moviles para que aparesca la linea subrayada bajo el menu active o aria selected */
+    /* Esto es para los no moviles para que aparezca la linea subrayada bajo el menu active o aria selected */
 .underline-indicators > .active,
 .underline-indicators > [aria-selected="true"] {
     color: hsl( var(--clr-white) / 1);
@@ -450,7 +449,7 @@ los usuarios con problema visual*/
 
 }
 /* --------------------------------------------------*/
-/*    IMAGEBES DE FONFOS  ESPECIFICAS POR PAGINAS    */
+/*    IMAGENES DE FONDOS  ESPECIFICAS POR PAGINAS    */
 /* --------------------------------------------------*/
 
 
@@ -476,7 +475,7 @@ body {
         background-image: url(./assets/home/background-home-desktop.jpg);
     }
 }
-/* destination */
+/* DESTINATION */
 
 .destination {
     background-image: url(./assets/destination/background-destination-mobile.jpg);
@@ -550,6 +549,7 @@ body {
   .grid-container--destination > picture {
     grid-area: image;
     max-width: 60%;
+    align-self: start;
   }
   
   .grid-container--destination > .tab-list {
@@ -646,25 +646,27 @@ body {
       '. image tabs .'
       '. image content .';
     }
-    .grid-container--destination > picture,
-    .grid-container--crew > picture {
+    .grid-container--destination > picture {
         max-width: 90%;
+
     }
     .destination-meta {
         --gap: min(6vw, 6rem);
         justify-content: start;
     }
     .grid-container--crew {
+        grid-template-columns: minmax(1rem, 1fr) minmax(0, 37rem) minmax(0, 23rem) minmax(1rem, 1fr);
+        justify-items: start;
         grid-template-areas: 
             '. title title .'
             '. content image .'
             '. tabs image .';
     }
-    .grid-container--crew > .dot-indicators {
-        justify-self: start;
-    }
-    /* .grid-container--crew > picture {
+   
+    .grid-container--crew > picture {
+        grid-column: span 2;
         align-self: end;
-    } */
+        max-width: 90%;
+    }
   
   }

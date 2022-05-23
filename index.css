@@ -1,0 +1,163 @@
+/* ---------------------------------------------------------------- */
+/*                          PROPIEDADES A MI MEDIDAS                                 */
+/* ----------------------------------------------------------------- */
+
+:root {
+  --clr-oscuro: 230 35% 7%;
+  --clr-claro: 231 77% 90%;
+  --clr-blanco: 0 0% 100%;
+ 
+  /* font-sizes */
+  /* Clamp: en este caso  sirve para establecer  fs-900 en la manera flexible depedienmdo de la anchura de las ventanas del navegador. El primer número es el tamaño minimo y el último es el tamaño maximo, y el medio es la parte flexible */
+  /* --fs-900: clamp(5rem, 8vw + 1rem, 9.375rem); */
+  --fs-900: 9.375rem;
+  --fs-800: 3.5rem;
+  --fs-700: 1.5rem;
+  --fs-600: 1rem;
+  --fs-500: 1rem;
+  --fs-400: 0.9375rem;
+  --fs-300: 1rem;
+  --fs-200: 0.875rem;
+  
+  /* font-families */
+  --ff-serif: "Bellefair", serif;
+  --ff-sans-cond: "Barlow Condensed", sans-serif;
+  --ff-sans-normal: "Barlow", sans-serif;
+}
+
+/* ---------------------------------------------------------------- */
+/*                          RESETEAR                                 */
+/* ----------------------------------------------------------------- */
+
+/* https://piccalil.li/blog/a-modern-css-reset/  
+Enlace a un  reset simple y moderno en la web utilizado por el pofe*/ 
+
+/*  Box sizing */   
+/* Con eso hacemos que cuando declaramos, por ejemplo, width de 500px en un DIV... que dentro de estos 500px entran bordes, padding y contenido y que los margenes no entran. */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/*   Resetear imagenes */
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+figure,
+picture {
+  margin: 0;
+}   
+
+/*      font weight GROSOR DE LETRA POR DEFECTO */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  font-weight: 400;
+}
+
+/*  Poner detalles en el body */
+/* Por defecto es 1,4 y es aparentemente poco */
+
+body {
+  font-family: var(--ff-sans-normal);
+  font-size: var(--fs-400);
+  color: hsl( var(--clr-blanco) );
+  background-color: hsl( var(--clr-oscuro) );
+  line-height: 1.5; 
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: min-content 1fr;
+  overflow-x: hidden;
+}
+
+/* Para trabajar mas facil con las imagenes */
+
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Para trabajar mas facil con el formulario */
+
+input,
+button,
+textarea,
+select {
+  font: inherit
+}
+/* Quitar las animaciones y transiciones para las personas que lo han solicitado en su navegador o sistema operativo, se trata de uma medida de accesibilidad */
+
+@media (prefers-reduced-motion: reduce) {  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+ /* ----------------------------------------------------------------------------- */
+/*                        CLASES  UTILES GENERALES                                  */
+/* -------------------------------------------------------------------------------- */
+
+ .linea {
+   border: 1px solid red;
+ }
+
+.flex {
+  display: flex;
+  gap: var(--gap, 1rem);
+}
+
+.grid {
+  display: grid;
+  gap: var(--gap, 1rem)
+}
+
+.flow > *:where(:not(:first-child)){
+  margin-top: var(--flow-espacio, 1rem);
+}
+.container {
+  padding-inline: 2em;
+  margin-inline: auto;
+  max-width: 80rem;
+}
+
+/* Esta clase sirve para ocultar visualmente el contenido que usan 
+los usuarios con problema visual*/
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap; /* agregar linea */
+  border: 0;
+}
+
+/*       COLORES         */
+.fondo-oscuro {background-color: hsla( var( --clr-oscuro ) );}
+.fondo-claro {background-color: hsla(var(--clr-claro ));}
+.fondo-blanco {background-color: hsla( var(--clr-blanco) );}
+
+.color-oscuro {color: hsla( var( --clr-oscuro ) );}
+.color-claro {color: hsla(var(--clr-claro ));}
+.color-blanco {color: hsla( var(--clr-blanco) );}

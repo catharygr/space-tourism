@@ -5,22 +5,27 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700&family=Bellefair&family=Barlow:wght@400;700&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="index.css">
   <style>
     body {
-      padding-top: 3rem;
+      padding-block: 5rem;
     }
   </style>
   <title>Design System page </title>
 </head>
 
-<body>
+<body class="flow">
   <div class="container">
-    <p><span>01</span>Colors</p>
+    <h2 class="titulo-numerado"><span>01</span>Colors</h2> 
     <div class="flex">
 
       <div class="flow">
-        <div class="fondo-oscuro">
+        <div style="border: 1px solid gray;" class="fondo-oscuro">
           <p class="color-blanco" style="padding: 1rem;">#0B0D17</p>
         </div>
         <p><span>RGB</span>11, 13, 23</p>
@@ -42,6 +47,38 @@
         <p><span>RGB</span>255, 255, 255</p>
         <p><span>HSL</span>0º, 0%, 100%</p>
       </div>
+
+    </div>
+  </div>
+  <div class="container flow">
+    <h2 class="titulo-numerado"><span>02</span>tipography</h2>
+    <p class="ff-serif fs-900 uppercase">earth</p>
+    <p class="ff-serif fs-800 uppercase">venus</p>
+    <p class="ff-serif fs-700 uppercase">jupiter & saturn</p>
+    <p class="ff-serif fs-600 uppercase">uranus, neptune, & pluto</p>
+    <p class="ff-sans-cond fs-500 uppercase espacio-letras-1">so, you want to travel to space</p>
+    <p class="ff-serif fs-500 uppercase">384,400 km</p>
+    <p class="ff-sans-cond fs-200 uppercase espacio-letras-3">avg.distance</p>
+    <p class="ff-sans-cond fs-300 uppercase espacio-letras-2">europa</p>
+    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec </p>
+  </div>
+  <div class="container flow">
+    <h2 class="titulo-numerado"><span>03</span>interactive elements</h2>
+    <!-- NAVEGACION PRINCIPAL -->
+    <div>
+      <nav>
+        <ul class="flex navegacion-principal indicador-subrayado">
+          <li class=" active"><a  class="uppercase color-blanco espacio-letras-2 ff-sans-cond" href="#"><span>00</span>active</a></li>
+          <li><a  class="uppercase color-blanco espacio-letras-2 ff-sans-cond" href="#"><span>01</span>hovered</a></li>
+          <li><a  class="uppercase color-blanco espacio-letras-2 ff-sans-cond" href="#"><span>00</span>idle</a></li>
+        </ul>
+      </nav>
+    </div>
+
+  </div>
+  <div class="container flow">
+    <div style="margin-top: 5rem">
+      <a class="ff-serif fs-600 uppercase espacio-letras-2 color-oscuro fondo-blanco boton-principal" >explore</a>
 
     </div>
   </div>

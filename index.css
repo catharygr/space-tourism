@@ -35,7 +35,7 @@
   }
 }
 
-@media (min-width: 45em) {
+@media (min-width: 50em) {
   :root {
       /* font-sizes */
       --fs-800: 6.25rem;
@@ -228,6 +228,7 @@ los usuarios con problema visual*/
 /*             COMPONENTES        */
 /* -------------------------------------------------- */
 
+/*  BOTON PRINCIPAL */
 .boton-principal {
   position: relative;
   font-size: 2rem;
@@ -258,9 +259,20 @@ los usuarios con problema visual*/
     transform: scale(1.5);
 }
 
+/* NAVEGACION PRINCIPAL */
+
+.primary-header {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  margin: 1.5rem clamp(2.5rem, 5vw, 4.5rem);
+}
+
 .navegacion-principal {
   --gap: clamp(1.5rem, 5vw, 3.5rem);
-
+  --espacio-subrayado: 2rem;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -277,22 +289,152 @@ los usuarios con problema visual*/
   text-decoration: none;
 }
 
+.mobile-nav-toggle {
+  display: none;
+} 
+
+@media (max-width: 36rem) {
+  .navegacion-principal {
+    flex-direction: column;
+    position: fixed;
+    z-index: 1000;
+    inset: 0 0 0 30%;
+    margin: 0;
+    padding: min(20rem, 15vh) 2rem;
+    --espacio-subrayado: .5rem;
+    transform: translateX(100%);
+    transition: transform 500ms ease-in-out;
+  }
+  .navegacion-principal[data-visible='true'] {
+    transform: translateX(0);
+  }
+  .mobile-nav-toggle {
+    display: block;
+    z-index: 2000;
+    position: absolute;
+    top: 2rem;
+    right: 1rem;
+    border: 0;
+    width: 1.5rem;
+    aspect-ratio: 1;
+    background-image: url(./assets/shared/icon-hamburger.svg);
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  .mobile-nav-toggle[aria-expanded="true"] {
+    background-image: url(./assets/shared/icon-close.svg);
+  }
+}
+
+@media (min-width: 36rem) {
+  .navegacion-principal {
+    padding-inline: clamp(3rem, 9vw, 10rem);;
+  }
+}
+
+@media (min-width: 36rem) and (max-width: 49.999rem) {
+  .navegacion-principal a > span {
+    display: none;
+  }
+
+}
+
+@media (min-width: 50rem) {
+  .primary-header::after {
+    content: '';
+    display: block;
+    position: relative;
+    height: 1px;
+    width: 100%;
+    margin-right: -2.5rem;
+    background-color: hsl(var(--clr-blanco) / .25 );
+    order: 1;
+  }
+  nav {
+    order: 2;
+  }
+
+  .navegacion-principal {
+    margin-block: 2rem;
+  }
+}
+
 .indicador-subrayado > * {
   cursor: pointer;
-  padding-block: 1.5rem;
+  padding: var(--espacio-subrayado, .5rem) 0;
   border: 0;
-  border-bottom: .3rem solid hsla( var(--clr-blanco)/0 );
+  border-bottom: .3rem solid hsla( var(--clr-blanco)/ 0 );
   background-color: transparent;
 }
 
-.indicador-subrayado > *:hover {
-  border-bottom: .3rem solid hsla( var(--clr-blanco)/.5 );
+@media (hover:hover) {
+  .indicador-subrayado > *:hover {
+    border-bottom: .3rem solid hsla( var(--clr-blanco)/.5 );
+  }
 }
 
-.active {
-  border-bottom: .3rem solid hsla( var(--clr-blanco)/ 1 );
+@media (min-width: 36rem) {
+  .active {
+    border-bottom: .3rem solid hsla( var(--clr-blanco)/ 1 );
+  }
+}
+  /* @media (min-width: 35rem) {
+  .underline-indicators > .active,
+  .underline-indicators > [aria-selected="true"] {
+    color: hsl( var(--clr-white) / 1);
+    border-color: hsl( var(--clr-white) / 1); 
+    }
+  } */
+
+/* NAVEGACION PESTANA */
+
+.nav-tabs {
+  --gap: 2rem;
 }
 
+/* NAVEGACION PUNTO */
 
+.nav-puntos > button {
+  cursor: pointer;
+  border: none;
+  border-radius: 50%;
+  padding: .5rem;
+  background-color: hsl(var(--clr-blanco) /.25 );
+}
+.nav-puntos > button:hover {
+  background-color: hsl(var(--clr-blanco) /.5 );
+}
+
+.nav-puntos > [aria-selected="true"] {
+  background-color: hsl(var(--clr-blanco) / 1 );
+}
+
+/* NAVEGACION NUMEROS */
+
+.nav-numeros {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.nav-numeros > button {
+  border-radius: 50%;
+  cursor: pointer;
+  width: 5rem;
+  height: 5rem;
+  padding: 1rem;
+  border: .1rem solid hsl( var(--clr-blanco) /.25 );
+}
+
+.nav-numeros > button:hover {
+  border-color: hsl(var(--clr-blanco) /.5 ); 
+}
+
+.nav-numeros > [aria-selected="true"] {
+  background-color: hsl(var(--clr-blanco) / 1 );
+  color: hsla( var( --clr-oscuro ) );
+  border: .1rem solid hsl( var(--clr-blanco) / 1 );
+}
 
 

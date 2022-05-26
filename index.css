@@ -9,8 +9,7 @@
  
   /* font-sizes */
   /* Clamp: en este caso  sirve para establecer  fs-900 en la manera flexible depedienmdo de la anchura de las ventanas del navegador. El primer número es el tamaño minimo y el último es el tamaño maximo, y el medio es la parte flexible */
-  /* --fs-900: clamp(5rem, 8vw + 1rem, 9.375rem); */
-  --fs-900: 9.375rem;
+  --fs-900: clamp(6rem, 8vw + 1rem, 9.375rem);
   --fs-800: 3.5rem;
   --fs-700: 1.5rem;
   --fs-600: 1rem;
@@ -150,6 +149,10 @@ select {
   gap: var(--gap, 1rem)
 }
 
+.d-block {
+  display: block;
+}
+
 .flow > *:where(:not(:first-child)){
   margin-top: var(--flow-espacio, 1rem);
 }
@@ -277,6 +280,7 @@ los usuarios con problema visual*/
   margin: 0;
   padding: 0;
   background-color: hsl( var(--clr-blanco) /0.05);
+  -webkit-backdrop-filter: blur(1.5rem); 
   backdrop-filter: blur(1.5rem); 
 
 }
@@ -437,4 +441,64 @@ los usuarios con problema visual*/
   border: .1rem solid hsl( var(--clr-blanco) / 1 );
 }
 
+/* --------------------------------------------------*/
+/*    IMAGENES DE FONDOS  ESPECIFICAS POR PAGINAS    */
+/* --------------------------------------------------*/
 
+body {
+  background-size: cover;
+  background-position: bottom center;
+}
+
+.home {
+  background-image: url(./assets/home/background-home-mobile.jpg);
+}
+
+@media (min-width: 36rem) {
+  .home {
+    background-image: url(./assets/home/background-home-tablet.jpg);
+  }
+}
+
+@media (min-width: 50rem) {
+  .home {
+    background-image: url(./assets/home/background-home-desktop.jpg);
+  }
+}
+
+/* -------------------------------------  */
+/*      Layout  (Colocar los elementos)   */
+/* -------------------------------------  */
+
+.grid-container {
+    display: grid;
+    place-items: center;
+    text-align: center;
+    padding-inline: 1rem;
+    padding-bottom: 5rem;
+  }
+
+  .grid-container p:not([class]) {
+    max-width: 50ch;
+}
+
+@media (min-width: 50rem) {
+  .grid-container {
+    text-align: left;
+    grid-template-columns: minmax(1rem, 1fr)  repeat(2, minmax(0, 30rem))   minmax(1rem, 1fr);
+  }
+
+  .grid-container--home {
+    align-items: end;
+    padding-bottom: max(6rem, 20vh);
+  }
+
+  .grid-container--home > *:first-child {
+    grid-column: 2;
+  }
+
+  .grid-container--home > *:last-child {
+    grid-column: 3;
+  }
+
+ }

@@ -24,7 +24,7 @@
   --ff-sans-normal: "Barlow", sans-serif;
 }
 
-@media (min-width: 36em) {
+@media (min-width: 36rem) {
   :root {
       --fs-800: 5rem;
       --fs-700: 2.5rem;
@@ -93,7 +93,7 @@ p {
 body {
   font-family: var(--ff-sans-normal);
   font-size: var(--fs-400);
-  color: hsl( var(--clr-blanco) );
+  color: hsl( var(--clr-claro) );
   background-color: hsl( var(--clr-oscuro) );
   line-height: 1.5; 
   min-height: 100vh;
@@ -297,7 +297,7 @@ los usuarios con problema visual*/
   display: none;
 } 
 
-@media (max-width: 36rem) {
+@media (max-width: 37em) {
   .navegacion-principal {
     flex-direction: column;
     position: fixed;
@@ -332,20 +332,20 @@ los usuarios con problema visual*/
   }
 }
 
-@media (min-width: 36rem) {
+@media (min-width: 37em) {
   .navegacion-principal {
     padding-inline: clamp(3rem, 9vw, 10rem);;
   }
 }
 
-@media (min-width: 36rem) and (max-width: 49.999rem) {
+@media (min-width: 37em) and (max-width: 49.999rem) {
   .navegacion-principal a > span {
     display: none;
   }
 
 }
 
-@media (min-width: 50rem) {
+@media (min-width: 50em) {
   .primary-header::after {
     content: '';
     display: block;
@@ -377,14 +377,14 @@ los usuarios con problema visual*/
   color: hsl( var(--clr-white) / 1);
   border-color: hsl( var(--clr-white) / 1); 
   }
-  
+
 @media (hover:hover) {
   .indicador-subrayado > *:hover {
     border-bottom: .3rem solid hsla( var(--clr-blanco)/.5 );
   }
 }
 
-@media (min-width: 36rem) {
+@media (min-width: 37em) {
   .active {
     border-bottom: .3rem solid hsla( var(--clr-blanco)/ 1 );
   }
@@ -453,13 +453,13 @@ body {
   background-image: url(./assets/home/background-home-mobile.jpg);
 }
 
-@media (min-width: 36rem) {
+@media (min-width: 37em) {
   .home {
     background-image: url(./assets/home/background-home-tablet.jpg);
   }
 }
 
-@media (min-width: 50rem) {
+@media (min-width: 50em) {
   .home {
     background-image: url(./assets/home/background-home-desktop.jpg);
   }
@@ -469,13 +469,13 @@ body {
   background-image: url(./assets/destination/background-destination-mobile.jpg);
 }
 
-@media (min-width: 36rem) {
+@media (min-width: 37em) {
   .destination {
     background-image: url(./assets/destination/background-destination-tablet.jpg);
   }
 }
 
-@media (min-width: 50rem) {
+@media (min-width: 50em) {
   .destination {
     background-image: url(./assets/destination/background-destination-desktop.jpg);
   }
@@ -497,7 +497,7 @@ body {
     max-width: 50ch;
 }
 
-@media (min-width: 50rem) {
+@media (min-width: 50em) {
   .grid-container {
     text-align: left;
     grid-template-columns: minmax(1rem, 1fr)  repeat(2, minmax(0, 30rem))   minmax(1rem, 1fr);
@@ -546,6 +546,11 @@ body {
   grid-area: content;
 }
 
+.opacidad-off {
+  opacity: 0;
+  transition: opacity 250ms  linear;
+}
+
 
  .destination-meta {
    display: flex;
@@ -559,7 +564,7 @@ body {
    font-size: 1.75rem;
  }
 
- @media (min-width: 36rem) {
+ @media (min-width: 37em) {
    .titulo-numerado {
      justify-self: start;
      margin-block: 2rem;
@@ -576,7 +581,7 @@ body {
    }
   }
 
-  @media (min-width: 50rem) {
+  @media (min-width: 50em) {
     .grid-container--destination {
       justify-items: start;
       align-content: start;
@@ -594,6 +599,62 @@ body {
     --gap: min(6vw, 6rem);
     justify-content: start;
   }
-
 }
 
+  /*                CREW PAGE                   */
+
+.grid-container--crew {
+  --flow-space: 2rem;
+  grid-template-areas: 
+    'title'
+    'image'
+    'tabs'
+    'content';
+}
+
+.grid-container--crew > h1 {
+  grid-area: title;
+}
+
+.grid-container--crew > picture {
+  grid-area: image;
+  max-width: 50%;
+  border-bottom: 1px solid hsla(var(--clr-claro ) / .3 );
+}
+
+.grid-container--crew > .nav-puntos {
+  grid-area: tabs;
+}
+
+.grid-container--crew > .crew-info {
+  grid-area: content;
+}
+
+.crew-info h2 {
+  color: hsl(var(--clr-blanco) /.5 );
+}
+
+@media (min-width: 37em) {
+  .grid-container--crew {
+    grid-template-areas: 
+      'title'
+      'content'
+      'tabs'
+      'image';
+  }
+}
+
+@media (min-width: 50em) {
+  .grid-container--crew {
+    grid-template-columns: minmax(1rem, 1fr)  minmax(0, 35rem)  minmax(0, 25rem)  minmax(1rem, 1fr);
+    justify-items: start;
+    grid-template-areas: 
+    '. title title .'
+    '. content image .'
+    '. tabs image .';
+  }
+  .grid-container--crew > picture {
+    max-width: 100%;
+  }
+  
+}

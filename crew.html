@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700&family=Bellefair&family=Barlow:wght@400;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="index.css">
+  <title>Space exploration - Crew  page</title>
+  <script defer src="index.js"></script>
+</head>
+
+<body class="crew">
+  <header class="primary-header flex">
+    <div>
+      <img class="logo" src="./assets/shared/logo.svg" alt="logo">
+    </div>
+    <button class="mobile-nav-toggle" aria-controls="navegacion-principal"><span class="sr-only"
+        aria-expanded="false">Menu</span></button>
+    <nav>
+      <ul id="navegacion-principal" class="flex navegacion-principal indicador-subrayado" data-visible="false">
+        <li><a class="uppercase color-blanco espacio-letras-2 ff-sans-cond"
+            href="./index.html"><span>00</span>Home</a></li>
+        <li><a class="uppercase color-blanco espacio-letras-2 ff-sans-cond"
+            href="./destination.html"><span>01</span>Destination</a></li>
+        <li class=" active"><a class="uppercase color-blanco espacio-letras-2 ff-sans-cond" href="./crew.html"><span>00</span>Crew</a>
+        </li>
+        <li><a class="uppercase color-blanco espacio-letras-2 ff-sans-cond"
+            href="./technology.html"><span>00</span>Technology</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main" class="grid-container grid-container--crew flow">
+
+    <h1 class="titulo-numerado"><span>02</span>Meet your crew</h1>
+
+    <picture id="articulo--img">
+      <source srcset="./assets/crew/image-douglas-hurley.webp" type="image/webp">
+      <img src="./assets/crew/image-douglas-hurley.png" alt="Douglas Huerly">
+    </picture>
+
+    <div class="nav-puntos flex" data-page="crew">
+      <button data-indice="0" aria-selected="true" role="tab"><span class="sr-only">Slide title</span></button>
+      <button data-indice="1" aria-selected="false" role="tab"><span class="sr-only">Slide title</span></button>
+      <button data-indice="2" aria-selected="false" role="tab"><span class="sr-only">Slide title</span></button>
+      <button data-indice="3" aria-selected="false" role="tab"><span class="sr-only">Slide title</span></button>
+  </div>
+
+ 
+
+    <article id="articulo" class="crew-info flow">
+       <header class="flow flow--space-small">
+        <h2 class="fs-600 ff-serif uppercase">Commander</h2>
+        <p class="fs-700 uppercase ff-serif color-blanco">Douglas Hurley</p>
+      </header>
+      <p>Douglas Gerald Hurley is an American engineer, former Marine Corps pilot 
+      and former NASA astronaut. He launched into space for the third time as 
+      commander of Crew Dragon Demo-2.</p>
+    </article>
+  </main>
+
+
+</body>
+
+</html>

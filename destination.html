@@ -12,9 +12,8 @@
     href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700&family=Bellefair&family=Barlow:wght@400;700&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="index.css">
-  <title>Space exploration</title>
-  <script defer src="navigation.js"></script>
-  <script defer src="tabs.js"></script>
+  <title>Space exploration - destination page</title>
+  <script defer src="index.js"></script>
 </head>
 
 <body class="destination">
@@ -26,9 +25,9 @@
         aria-expanded="false">Menu</span></button>
     <nav>
       <ul id="navegacion-principal" class="flex navegacion-principal indicador-subrayado" data-visible="false">
-        <li class=" active"><a class="uppercase color-blanco espacio-letras-2 ff-sans-cond"
-            href="./index.html"><span>00</span>Home</a></li>
         <li><a class="uppercase color-blanco espacio-letras-2 ff-sans-cond"
+            href="./index.html"><span>00</span>Home</a></li>
+        <li class=" active"><a class="uppercase color-blanco espacio-letras-2 ff-sans-cond"
             href="./destination.html"><span>01</span>Destination</a></li>
         <li><a class="uppercase color-blanco espacio-letras-2 ff-sans-cond" href="./crew.html"><span>00</span>Crew</a>
         </li>
@@ -42,20 +41,20 @@
 
     <h1 class="titulo-numerado"><span>01</span>Pick your destination</h1>
 
-    <picture>
+    <picture id="articulo--img">
       <source srcset="./assets/destination/image-moon.webp" type="image/webp">
       <img src="./assets/destination/image-moon.png" alt="Moon">
     </picture>
 
-    <div id="nav-tabs" class="nav-tabs indicador-subrayado flex">
-      <button aria-selected="true" role="tab" class="uppercase ff-sans-cond color-claro  espacio-letra-2">Moon</button>
-      <button aria-selected="false" role="tab" class="uppercase ff-sans-cond color-claro  espacio-letra-2">Mars</button>
-      <button aria-selected="false" role="tab" class="uppercase ff-sans-cond color-claro  espacio-letra-2">Europa</button>
-      <button aria-selected="false" role="tab" class="uppercase ff-sans-cond color-claro  espacio-letra-2">Titan</button>
+    <div id="nav-tabs" class="nav-tabs indicador-subrayado flex" data-page="destinations">
+      <button data-indice="0" aria-selected="true" role="tab" class="uppercase ff-sans-cond color-claro  espacio-letra-2">Moon</button>
+      <button data-indice="1" aria-selected="false" role="tab" class="uppercase ff-sans-cond color-claro  espacio-letra-2">Mars</button>
+      <button data-indice="2" aria-selected="false" role="tab" class="uppercase ff-sans-cond color-claro  espacio-letra-2">Europa</button>
+      <button data-indice="3" aria-selected="false" role="tab" class="uppercase ff-sans-cond color-claro  espacio-letra-2">Titan</button>
     </div>
 
-    <article class="destination-info flow">
-      <h2 class="ff-serif fs-800 uppercase">Moon</h2>
+    <article id="articulo" class="destination-info flow">
+      <h2 class="ff-serif fs-800 uppercase color-blanco">Moon</h2>
       <p>Don’t forget to pack your hiking boots. You’ll need them to tackle Olympus Mons, 
         the tallest planetary mountain in our solar system. It’s two and a half times 
         the size of Everest!</p>

@@ -316,7 +316,7 @@ los usuarios con problema visual*/
     display: block;
     z-index: 2000;
     position: absolute;
-    top: 2rem;
+    top: 1.5rem;
     right: 1rem;
     border: 0;
     width: 1.5rem;
@@ -424,8 +424,8 @@ los usuarios con problema visual*/
 .nav-numeros > button {
   border-radius: 50%;
   cursor: pointer;
-  width: 5rem;
-  height: 5rem;
+  width: 4rem;
+  height: 4rem;
   padding: 1rem;
   border: .1rem solid hsl( var(--clr-blanco) /.25 );
 }
@@ -478,6 +478,38 @@ body {
 @media (min-width: 50em) {
   .destination {
     background-image: url(./assets/destination/background-destination-desktop.jpg);
+  }
+}
+
+.crew {
+  background-image: url(./assets/crew/background-crew-mobile.jpg);
+}
+
+@media (min-width: 37em) {
+  .crew {
+    background-image: url(./assets/crew/background-crew-tablet.jpg);
+  }
+}
+
+@media (min-width: 50em) {
+  .crew {
+    background-image: url(./assets/crew/background-crew-desktop.jpg);
+  }
+}
+
+.technology {
+  background-image: url(./assets/technology/background-technology-mobile.jpg);
+}
+
+@media (min-width: 37em) {
+  .crew {
+    background-image: url(./assets/technology/background-technology-tablet.jpg);
+  }
+}
+
+@media (min-width: 50em) {
+  .crew {
+    background-image: url(./assets/technology/background-technology-desktop.jpg);
   }
 }
 
@@ -656,5 +688,72 @@ body {
   .grid-container--crew > picture {
     max-width: 100%;
   }
-  
 }
+
+
+  /*      TECHNOLOGY PAGE        */
+
+.nav-numeros {
+  flex-direction: row;
+}
+
+.technology  main {
+  padding-inline: 0;
+}
+
+.technology picture, picture > img {
+  width: 100%;
+}
+
+@media (min-width: 36rem) {
+  .technology h1 {
+    margin-left: 1rem;
+  }
+}
+
+@media (min-width: 50rem) {
+  .grid-container--technology {
+    column-gap: 2rem;
+    grid-template-columns: minmax(1rem, 5rem) minmax(0, 5rem) minmax(0, 3fr) minmax(0, 2fr);
+    grid-template-areas: 
+    '. title title title'
+    '. tabs content image';
+  }
+   
+  .grid-container--technology > h1 {
+    grid-area: title;
+  }
+
+  .grid-container--technology > picture {
+    grid-area: image;
+  }
+
+  .grid-container--technology > .nav-numeros {
+    justify-self: start;
+    flex-direction: column;
+    grid-area: tabs;
+  }
+
+  .grid-container--technology > .technology-info {
+    grid-area: content;
+    justify-self: start;
+  }
+  }
+ 
+  /*    AJUSTES MINUSCULOS  */
+
+  
+  @media (max-width: 37rem) {
+    .grid-container {
+      --flow-espacio: 2rem;
+    }
+    .logo {
+      margin-inline: 1rem;
+      max-width: 50%;
+    }
+
+  .boton-principal {
+    padding-inline: 2rem;
+    margin-top: 2rem;
+  }
+  }

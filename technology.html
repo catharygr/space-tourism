@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700&family=Bellefair&family=Barlow:wght@400;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="index.css">
+  <title>Space exploration - technology  page</title>
+  <script defer src="index.js"></script>
+</head>
+
+<body class="technology">
+  <header class="primary-header flex">
+    <div>
+      <img class="logo" src="./assets/shared/logo.svg" alt="logo">
+    </div>
+    <button class="mobile-nav-toggle" aria-controls="navegacion-principal"><span class="sr-only"
+        aria-expanded="false">Menu</span></button>
+    <nav>
+      <ul id="navegacion-principal" class="flex navegacion-principal indicador-subrayado" data-visible="false">
+        <li><a class="uppercase color-blanco espacio-letras-2 ff-sans-cond"
+            href="./index.html"><span>00</span>Home</a></li>
+        <li><a class="uppercase color-blanco espacio-letras-2 ff-sans-cond"
+            href="./destination.html"><span>01</span>Destination</a></li>
+        <li><a class="uppercase color-blanco espacio-letras-2 ff-sans-cond" href="./crew.html"><span>00</span>Crew</a>
+        </li>
+        <li class=" active"><a class="uppercase color-blanco espacio-letras-2 ff-sans-cond"
+            href="./technology.html"><span>00</span>Technology</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main" class="grid-container grid-container--technology flow">
+
+    <h1 class="titulo-numerado"><span>03</span>Space launch 101</h1>
+
+    <picture id="articulo--img">
+      <source 
+        media="(orientation: landscape)" 
+        srcset="./assets/technology/image-launch-vehicle-portrait.jpg" type="image/jpeg">
+        <source 
+        media="(orientation: portrait)" 
+        srcset="./assets/technology/image-launch-vehicle-landscape.jpg" type="image/jpeg">
+      <img src="./assets/technology/image-launch-vehicle-landscape.jpg" alt="Launch Vehicle">
+    </picture>
+
+
+  <div class="nav-numeros flex" data-page="technology">
+    <button data-indice="0" aria-selected="true"  role="tab" class="ff-serif fs-600 fondo-oscuro color-blanco">1</button>
+    <button data-indice="1" aria-selected="false" role="tab"  class="ff-serif fs-600 fondo-oscuro color-blanco">2</button>
+    <button data-indice="2" aria-selected="false" role="tab"  class="ff-serif fs-600 fondo-oscuro color-blanco">3</button>
+</div>
+
+ 
+
+    <article id="articulo" class="technology-info flow">
+       <header class="flow flow--space-small">
+        <h2 class="fs-600 ff-serif uppercase">the terminology...</h2>
+        <p class="fs-700 uppercase ff-serif color-blanco">Launch vehicle</p>
+      </header>
+      <p> A launch vehicle or carrier rocket is a rocket-propelled vehicle used to carry a payload from Earth's surface to space, usually to Earth orbit or beyond. Our WEB-X carrier rocket is the most powerful in operation. Standing 150 metres tall, it's quite an awe-inspiring sight on the launch pad!</p>
+    </article>
+  </main>
+
+
+</body>
+
+</html>
